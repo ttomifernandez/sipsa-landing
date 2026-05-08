@@ -1,36 +1,165 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SIPSA - Landing Page Profesional
 
-## Getting Started
+Landing page moderna de SIPSA, una prepaga ficticia de Córdoba, construida con Next.js, React, TypeScript y Tailwind CSS v4.
 
-First, run the development server:
+## ✨ Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Diseño Responsivo:** Totalmente adaptado para mobile, tablet y desktop
+- **Gradientes Profesionales:** Tema oscuro con gradientes verdes y azules (tema salud/confianza)
+- **Secciones Completas:**
+  - Header fijo con navegación
+  - Hero section con call-to-action
+  - Sobre Nosotros con información creíble
+  - 3 Planes ficticios pero realistas (Básico, Estándar, Premium)
+  - Formulario de contacto con validación
+  - Footer informativo
+
+- **Funcionalidades:**
+  - Formulario que captura Nombre, Email, Teléfono y Plan Seleccionado
+  - Al enviar, redirige automáticamente a WhatsApp (número: +54 9 351 5929043)
+  - Mensaje automático preformulado: "Hola, me interesa el plan [PLAN] de SIPSA"
+  - Almacenamiento de datos en localStorage
+  - Pantalla de confirmación después del envío
+
+## 🛠️ Stack Tecnológico
+
+- **Next.js 14+** - React framework
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS v4** - Styling
+- **Vercel** - Hosting
+
+## 📁 Estructura del Proyecto
+
+```
+sipsa-landing/
+├── app/
+│   ├── page.tsx          # Página principal
+│   ├── layout.tsx        # Layout global
+│   └── globals.css       # Estilos globales
+├── components/
+│   ├── Header.tsx        # Encabezado con navegación
+│   ├── Hero.tsx          # Sección hero
+│   ├── About.tsx         # Sección sobre nosotros
+│   ├── Plans.tsx         # Grid de planes
+│   ├── ContactForm.tsx   # Formulario de contacto
+│   ├── ContactFormContent.tsx  # Contenido del formulario
+│   └── Footer.tsx        # Pie de página
+├── public/               # Archivos estáticos
+├── tailwind.config.ts    # Configuración de Tailwind
+├── next.config.ts        # Configuración de Next.js
+└── package.json          # Dependencias
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Instalación y Desarrollo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Requisitos Previos
+- Node.js 18+
+- npm o yarn
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Instalación
 
-## Learn More
+```bash
+# Clonar repositorio
+git clone https://github.com/ttomifernandez/sipsa-landing.git
+cd sipsa-landing
 
-To learn more about Next.js, take a look at the following resources:
+# Instalar dependencias
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Ejecutar en desarrollo
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-## Deploy on Vercel
+### Build para Producción
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Planes Incluidos
+
+### Plan Básico - $1.899/mes
+- Cobertura médica general
+- 250+ profesionales
+- Telemedicina
+- Medicamentos con descuento
+- Estudios de laboratorio
+
+### Plan Estándar - $3.499/mes ⭐ (Más Popular)
+- Todo Plan Básico +
+- 400+ profesionales
+- Odontología
+- Kinesiología
+- Oftalmología
+- Atención prioritaria
+
+### Plan Premium - $5.299/mes
+- Todo Plan Estándar +
+- 500+ profesionales
+- Psicología/Psiquiatría
+- Internación premium
+- Cirugías mayores
+- Ambulancia 24/7
+- Atención VIP
+
+## 🌐 Deploy en Vercel
+
+El proyecto está deployado en Vercel en: **https://sipsa-landing.vercel.app**
+
+Para hacer deploy:
+
+```bash
+vercel --prod --yes
+```
+
+## 📝 Variables de Entorno
+
+No se requieren variables de entorno especiales. El número de WhatsApp está hardcodeado como `3515929043`.
+
+## 🎨 Personalización
+
+### Cambiar número de WhatsApp
+Edita `components/ContactFormContent.tsx` línea ~54:
+```typescript
+`https://wa.me/5493515929043?text=${message}`
+```
+
+### Cambiar colores/tema
+Los colores están definidos en Tailwind. Edita las clases de gradiente en los componentes o `tailwind.config.ts`.
+
+### Editar planes
+Los planes están en `components/Plans.tsx`. Modifica el array `plans[]` con tus propios planes.
+
+## 📊 Formulario y Datos
+
+El formulario captura:
+- ✅ Nombre completo
+- ✅ Email
+- ✅ Teléfono
+- ✅ Plan seleccionado
+
+Los datos se guardan en `localStorage` antes de redirigir a WhatsApp.
+
+## 🔐 Seguridad
+
+- Las redirecciones a WhatsApp son client-side
+- Sin backend expuesto
+- Sin almacenamiento de datos en servidores
+- Validación básica de formulario HTML5
+
+## 📄 Licencia
+
+Este proyecto es de código abierto bajo licencia MIT.
+
+## 👨‍💻 Desarrollo
+
+Para reportar bugs o sugerir mejoras, abre un issue en GitHub.
+
+---
+
+**Hecho con ❤️ para SIPSA - Prepaga Córdoba**
